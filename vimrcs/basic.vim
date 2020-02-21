@@ -313,11 +313,41 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" Move a line of text using ALT+[jk] or Command+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" Remap VIM H to first non-blank character
+map H ^
+" Remap VIM L to last blank character
+map L $
+
+" Clears highlighting 
+map <C-n> :noh<cr>                             
+
+" Replace word by occurence, press '.' to move to the next occurence which auto replaces with new word. I use it to rename variables. So far I haven't found a mapping that does it by scope reliably like vscode.
+nnoremap gr *``cgn
+
+
+" This loop remaps all 'alt key + character' to '\e + character' 
+" On my vim(windows, but some other windows users didn't have a problem)
+" it won't recognize the Meta key when Alt is pressed
+" https://vi.stackexchange.com/questions/2350/how-to-map-alt-key/2363
+
+" for i in range(97,122)
+"     let c = nr2char(i)
+"     execute "set <M-".c.">=\e".c.""
+"     " On the 'j' iteration it would look like this 
+"     " --> execute \"set <M-j>=\ej"
+" endfor
+
+" Move a line of text using Ctrl+[jk]
+nmap <C-j> mz:m+<cr>`z
+nmap <C-k> mz:m-2<cr>`z
+vmap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+" These two mappings are a quality of life improvement of copy/pasting from the clipboard
+" Effectively this paste map applies the indent within the pasted content from the indent level that you're at when you invoke the pasting
+" http://tilvim.com/2014/03/18/a-better-paste.html
+map <Leader>p :set paste<CR>o<esc>"+]p:set nopaste<cr>
+vmap <Leader>y "+y
 
 if has("mac") || has("macunix")
   nmap <D-j> <M-j>
