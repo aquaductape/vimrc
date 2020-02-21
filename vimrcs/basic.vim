@@ -127,6 +127,9 @@ endif
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+" Set insert mode cursor to blinking beam
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
