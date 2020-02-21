@@ -74,6 +74,13 @@ snor <C-j> <esc>i<right><C-r>=snipMate#TriggerSnippet()<cr>
 let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
 set grepprg=/bin/grep\ -nH
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => EasyMotion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
