@@ -127,6 +127,10 @@ endif
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+" If zsh/bash vim mode is enabled, set cursor back to block, in normal mode, when entering vim from zsh/bash
+autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
+autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
+
 " Set insert mode cursor to blinking beam
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
