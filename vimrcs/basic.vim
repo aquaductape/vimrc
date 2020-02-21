@@ -65,6 +65,9 @@ set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+" disable folding
+set nofoldenable 
+
 " Turn on the Wild menu
 set wildmenu
 
