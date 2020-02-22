@@ -80,7 +80,8 @@ set grepprg=/bin/grep\ -nH
 
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
-
+" remap s to EasyMotion
+map s <leader><leader>s
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
