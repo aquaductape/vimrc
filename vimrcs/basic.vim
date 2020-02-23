@@ -215,39 +215,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Remap VIM 0 to first non-blank character
-map 0 ^
-
-" Remap VIM H to first non-blank character
-map H ^
-" Remap VIM L to last blank character
-map L $
-
-" Clears highlighting 
-map <C-n> :noh<cr>                             
-
-" Replace word by occurence, press '.' to move to the next occurence which auto replaces with new word. I use it to rename variables. So far I haven't found a mapping that does it by scope reliably like vscode.
-nnoremap gr *``cgn
-
-
-" This loop remaps all 'alt key + character' to '\e + character' 
-" On my vim(windows, but some other windows users didn't have a problem)
-" it won't recognize the Meta key when Alt is pressed
-" https://vi.stackexchange.com/questions/2350/how-to-map-alt-key/2363
-
-" for i in range(97,122)
-"     let c = nr2char(i)
-"     execute "set <M-".c.">=\e".c.""
-"     " On the 'j' iteration it would look like this 
-"     " --> execute \"set <M-j>=\ej"
-" endfor
-
-" Move a line of text using Ctrl+[jk]
-nmap <C-j> mz:m+<cr>`z
-nmap <C-k> mz:m-2<cr>`z
-vmap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
@@ -310,6 +277,7 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
